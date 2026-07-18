@@ -1,0 +1,30 @@
+<section id="galeria" class="gallery">
+  <div class="container">
+    <div class="gallery__head" appScrollReveal>
+      <span class="eyebrow">Galeria</span>
+      <h2>Registros do bairro, do campo e da torcida</h2>
+      <p>
+        Substitua as fotos de exemplo pelas fotos reais dos treinos e jogos —
+        basta trocar os arquivos na pasta <code>src/assets</code>.
+      </p>
+    </div>
+
+    <div class="gallery__grid">
+      <figure
+        class="gallery__item"
+        *ngFor="let item of itens; let i = index"
+        appScrollReveal
+        [revealDelay]="i * 80"
+      >
+        <img *ngIf="item.tipo === 'foto'" [src]="item.src" [alt]="item.legenda" loading="lazy" />
+        <div *ngIf="item.tipo === 'placeholder'" class="gallery__placeholder">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 3c2.5 2 2.5 16 0 18M3 12h18M4.5 7c3.5 2 12 2 15 0M4.5 17c3.5-2 12-2 15 0" />
+          </svg>
+        </div>
+        <figcaption>{{ item.legenda }}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

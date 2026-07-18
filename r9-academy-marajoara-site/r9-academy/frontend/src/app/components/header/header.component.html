@@ -1,0 +1,33 @@
+<header class="header" [class.header--solid]="rolado">
+  <div class="header__inner">
+    <a href="#inicio" class="header__brand" (click)="fecharMenu()">
+      <img class="header__crest" src="assets/logo-r9-academy.svg" alt="Logo R9 Academy Marajoara" />
+      <span class="header__brand-text">
+        <strong>R9 Academy</strong>
+        <small>Marajoara · Escolinha de Futebol</small>
+      </span>
+    </a>
+
+    <nav class="header__nav" [class.header__nav--aberto]="menuAberto">
+      <a
+        *ngFor="let link of links"
+        [href]="link.href"
+        (click)="fecharMenu()"
+      >{{ link.label }}</a>
+
+      <a class="header__cta" [href]="whatsappLink" target="_blank" rel="noopener noreferrer" (click)="fecharMenu()">
+        Fale no WhatsApp
+      </a>
+    </nav>
+
+    <button
+      class="header__burger"
+      [class.header__burger--aberto]="menuAberto"
+      (click)="alternarMenu()"
+      [attr.aria-expanded]="menuAberto"
+      aria-label="Abrir menu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

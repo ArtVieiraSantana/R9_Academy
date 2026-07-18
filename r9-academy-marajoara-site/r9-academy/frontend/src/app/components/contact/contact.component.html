@@ -1,0 +1,71 @@
+<section id="contato" class="contact">
+  <div class="container contact__grid">
+    <div class="contact__intro" appScrollReveal>
+      <span class="eyebrow">Fale com a gente</span>
+      <h2>Vamos marcar sua primeira visita</h2>
+      <p>
+        Preencha o formulário ou, se preferir, chame a gente direto no
+        WhatsApp — respondemos rapidinho.
+      </p>
+
+      <a class="btn btn--whatsapp" [href]="whatsappLink" target="_blank" rel="noopener noreferrer">
+        Chamar no WhatsApp agora
+      </a>
+    </div>
+
+    <form
+      class="contact__form"
+      appScrollReveal
+      [revealDelay]="150"
+      [formGroup]="formulario"
+      (ngSubmit)="enviar()"
+      novalidate
+    >
+      <div class="field">
+        <label for="nome">Nome do responsável</label>
+        <input id="nome" type="text" formControlName="nome" placeholder="Seu nome" autocomplete="name" />
+        <small class="field__erro" *ngIf="campoInvalido('nome')">Informe o nome.</small>
+      </div>
+
+      <div class="field">
+        <label for="telefone">WhatsApp / Telefone</label>
+        <input id="telefone" type="tel" formControlName="telefone" placeholder="(11) 90000-0000" autocomplete="tel" />
+        <small class="field__erro" *ngIf="campoInvalido('telefone')">Informe um telefone.</small>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" formControlName="email" placeholder="seuemail@exemplo.com" autocomplete="email" />
+        <small class="field__erro" *ngIf="campoInvalido('email')">Informe um e-mail válido.</small>
+      </div>
+
+      <div class="field">
+        <label for="mensagem">Mensagem</label>
+        <textarea
+          id="mensagem"
+          rows="4"
+          formControlName="mensagem"
+          placeholder="Conte a idade da criança e o melhor horário para contato"
+        ></textarea>
+        <small class="field__erro" *ngIf="campoInvalido('mensagem')">Escreva uma mensagem.</small>
+      </div>
+
+      <!-- Campo "honeypot": invisível para pessoas, usado para barrar robôs de spam. -->
+      <div class="field field--honeypot" aria-hidden="true">
+        <label for="site">Não preencha este campo</label>
+        <input id="site" type="text" formControlName="site" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button type="submit" class="btn btn--primary" [disabled]="estado === 'enviando'">
+        {{ estado === 'enviando' ? 'Enviando...' : 'Enviar mensagem' }}
+      </button>
+
+      <p class="contact__feedback contact__feedback--ok" *ngIf="estado === 'sucesso'">
+        Mensagem enviada! Em breve alguém da R9 Academy Marajoara entra em contato.
+      </p>
+      <p class="contact__feedback contact__feedback--erro" *ngIf="estado === 'erro'">
+        {{ mensagemErro }}
+      </p>
+    </form>
+  </div>
+</section>

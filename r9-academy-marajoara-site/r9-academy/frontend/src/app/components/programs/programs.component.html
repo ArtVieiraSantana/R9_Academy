@@ -1,0 +1,24 @@
+<section id="turmas" class="programs">
+  <div class="container">
+    <div class="programs__head" appScrollReveal>
+      <span class="eyebrow">Turmas</span>
+      <h2>Escolha a categoria e vem treinar</h2>
+      <p>Turmas divididas por idade, com professores presentes em todos os treinos e acompanhamento de evolução.</p>
+    </div>
+
+    <div class="programs__grid">
+      <article
+        class="programs__card"
+        *ngFor="let turma of turmas; let i = index"
+        appScrollReveal
+        [revealDelay]="i * 100"
+      >
+        <span class="programs__number">{{ turma.numero }}</span>
+        <h3>{{ turma.nome }}</h3>
+        <p class="programs__idade">{{ turma.idade }}</p>
+        <p class="programs__horario">{{ turma.horario }}</p>
+        <p class="programs__foco">{{ turma.foco }}</p>
+      </article>
+    </div>
+  </div>
+</section>
