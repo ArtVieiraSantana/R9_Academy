@@ -1,15 +1,21 @@
 .contact {
   background: var(--branco-gelo);
-  padding: 6rem 0;
+  padding: 7rem 0 8rem;
 
   &__grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-    gap: 3rem;
-    align-items: start;
+    gap: 3.5rem;
+    align-items: center;
   }
 
   &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100%;
+
     h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(1.9rem, 4vw, 2.6rem);
@@ -19,9 +25,9 @@
 
     p {
       color: #5b6472;
-      line-height: 1.6;
+      line-height: 1.7;
       max-width: 42ch;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.8rem;
     }
   }
 

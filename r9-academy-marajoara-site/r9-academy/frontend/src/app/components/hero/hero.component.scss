@@ -100,11 +100,11 @@
   }
 
   &__lead {
-    margin: 1.4rem 0 0;
+    margin: 1.5rem 0 0;
     color: #d7e3ee;
     font-size: 1.05rem;
-    line-height: 1.6;
-    max-width: 620px;
+    line-height: 1.75;
+    max-width: 680px;
   }
 
   &__actions {
@@ -112,14 +112,14 @@
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 2.1rem;
+    margin-top: 2.4rem;
   }
 
   &__stats {
     display: flex;
     gap: 2.4rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 3.4rem;
+    padding-top: 2.2rem;
     border-top: 1px dashed rgba(245, 248, 252, 0.25);
 
     div {
